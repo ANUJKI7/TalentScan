@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAI Talent Scout - Discover Your Potential</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Floodlights -->
+    <div class="floodlight"></div>
+    <div class="floodlight"></div>
+    <div class="floodlight"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-door-closed"></i>
+    </button>
+
+    <!-- Authentication Container -->
+    <div class="container" id="auth-container">
+        <div class="header">
+            <div class="sports-elements" id="sports-elements">
+                <!-- Sports emojis will be added via JS -->
+            </div>
+            <div class="logo">
+                <i class="fas fa-running logo-icon"></i>
+                <div class="logo-text">SAI Talent Scout</div>
+            </div>
+            <div class="tagline">Your Potential, India's Pride</div>
+        </div>
+
+        <div class="form-container">
+            <h2 class="form-title" id="form-title">Welcome Back</h2>
+
+            <form id="auth-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="input-field" id="username" placeholder="Username or Email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" class="input-field" id="password" placeholder="Password" required>
+                </div>
+
+                <!-- Additional fields for signup -->
+                <div class="signup-extra" id="signup-extra">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="input-field" id="email" placeholder="Email Address">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" class="input-field" id="phone" placeholder="Phone Number">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" class="input-field" id="location" placeholder="Location">
+                    </div>
+
+                    <div class="sports-kit">
+                        <div class="kit-item" data-sport="cricket">🏏 Cricket</div>
+                        <div class="kit-item" data-sport="football">⚽ Football</div>
+                        <div class="kit-item" data-sport="hockey">🏑 Hockey</div>
+                        <div class="kit-item" data-sport="tennis">🎾 Tennis</div>
+                        <div class="kit-item" data-sport="athletics">🏃 Athletics</div>
+                    </div>
+                </div>
+
+                <div class="remember-forgot">
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Sign In</span>
+                </button>
+            </form>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-text">or continue with</div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="login-options">
+                <div class="option-btn aadhaar-btn" title="Aadhaar Login">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="option-btn" title="Google Login">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="option-btn" title="Facebook Login">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+            </div>
+
+            <div class="register-link">
+                Don't have an account? <a href="#" id="switch-mode">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- App Preview (Hidden by default) -->
+    <div class="app-preview" id="app-preview">
+        <div class="close-app" id="close-app">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="app-header">
+            <div class="app-title">
+                <h1>SAI Talent Scout</h1>
+                <p>Your Potential, India's Pride</p>
+            </div>
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+
+        <div class="app-nav">
+            <div class="nav-item active" data-target="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" data-target="tests">
+                <i class="fas fa-running"></i>
+                <span>Tests</span>
+            </div>
+            <div class="nav-item" data-target="results">
+                <i class="fas fa-chart-line"></i>
+                <span>Results</span>
+            </div>
+            <div class="nav-item" data-target="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard" id="dashboard">
+            <div class="greeting">
+                <h2>Welcome back, Anuj Kumar!</h2>
+                <p>Ready to continue your assessment?</p>
+            </div>
+
+            <!-- Athlete Stories -->
+            <div class="athlete-stories">
+                <div class="story" data-athlete="dhoni">
+                    <div class="story-bg"
+                        style="background-image: url('https://s.ndtvimg.com/images/content/2014/dec/806/ms-dhoni-with-world-cup.jpg');">
+                    </div>
+                    <div class="story-name">M.S. Dhoni</div>
+                    <div class="story-sport">Cricket</div>
+                </div>
+                <div class="story" data-athlete="messi">
+                    <div class="story-bg"
+                        style="background-image: url('https://m.media-amazon.com/images/I/71PEkfFmxDL._AC_UF894,1000_QL80_.jpg');">
+                    </div>
+                    <div class="story-name">Lionel Messi</div>
+                    <div class="story-sport">Football</div>
+                </div>
+                <div class="story" data-athlete="nadal">
+                    <div class="story-bg"
+                        style="background-image: url('https://ichef.bbci.co.uk/ace/standard/1280/cpsprodpb/e353/live/e987bb40-a2bd-11ef-8ab9-9192db313061.png');">
+                    </div>
+                    <div class="story-name">Rafael Nadal</div>
+                    <div class="story-sport">Tennis</div>
+                </div>
+                <div class="story" data-athlete="sindhu">
+                    <div class="story-bg"
+                        style="background-image: url('https://images.deccanchronicle.com/dc-Cover-0i6jham7kstut0h9v13dknk0i0-20161225172743.Medi.jpeg');">
+                    </div>
+                    <div class="story-name">P.V. Sindhu</div>
+                    <div class="story-sport">Badminton</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-tasks"></i> Your Progress</h3>
+                <p>Complete your profile to get personalized recommendations</p>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <p style="text-align: right; margin-top: 5px;">65% Complete</p>
+            </div>
+
+            <div class="card test-card">
+                <div class="test-info">
+                    <h4>Next Test: Vertical Jump</h4>
+                    <p>Estimated time: 5 minutes</p>
+                </div>
+                <button class="start-btn" id="start-test-btn">Start Test</button>
+            </div>
+
+            <div class="card test-card">
+                <div class="test-info">
+                    <h4>Pending Review: Shuttle Run</h4>
+                    <p><span class="ai-status"><span class="pulse"></span> AI Analyzing...</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-chart-pie"></i> Your Latest Results</h3>
+                <p>Speed: 78/100 | Strength: 65/100 | Endurance: 82/100</p>
+                <p style="margin-top: 10px; color: var(--saffron); font-weight: 600;">You're in the Top 20% for your age
+                    group!</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-trophy"></i> Your Badges</h3>
+                <div class="badges">
+                    <div class="badge">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="badge locked">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="badge locked">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tests Content (Hidden by default) -->
+        <div class="dashboard" id="tests" style="display: none;">
+            <div class="greeting">
+                <h2>Available Tests</h2>
+                <p>Complete these tests to assess your abilities</p>
+            </div>
+
+            <div class="card test-card">
+                <div class="test-info">
+                    <h4>Vertical Jump</h4>
+                    <p>Measures explosive leg power</p>
+                </div>
+                <button class="start-btn">Start</button>
+            </div>
+
+            <div class="card test-card">
+                <div class="test-info">
+                    <h4>Shuttle Run</h4>
+                    <p>Tests speed and agility</p>
+                </div>
+                <button class="start-btn">Start</button>
+            </div>
+
+            <div class="card test-card">
+                <div class="test-info">
+                    <h4>Sit-ups</h4>
+                    <p>Measures core strength</p>
+                </div>
+                <button class="start-btn">Start</button>
+            </div>
+
+            <div class="card test-card">
+                <div class="test-info">
+                    <h4>Endurance Run</h4>
+                    <p>Tests cardiovascular fitness</p>
+                </div>
+                <button class="start-btn">Start</button>
+            </div>
+        </div>
+
+        <!-- Results Content (Hidden by default) -->
+        <div class="dashboard" id="results" style="display: none;">
+            <div class="greeting">
+                <h2>Your Results</h2>
+                <p>Track your progress and compare with benchmarks</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-chart-radar"></i> Performance Radar</h3>
+                <p>Your scores compared to ideal benchmarks</p>
+                <div
+                    style="height: 200px; background: var(--gray-light); border-radius: 10px; margin-top: 15px; display: flex; justify-content: center; align-items: center;">
+                    <p>Radar Chart Visualization</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-history"></i> Progress Over Time</h3>
+                <p>Your improvement across test attempts</p>
+                <div
+                    style="height: 150px; background: var(--gray-light); border-radius: 10px; margin-top: 15px; display: flex; justify-content: center; align-items: center;">
+                    <p>Progress Chart Visualization</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Content (Hidden by default) -->
+        <div class="dashboard" id="profile" style="display: none;">
+            <div class="greeting">
+                <h2>Your Profile</h2>
+                <p>Manage your account and settings</p>
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <div
+                    style="width: 100px; height: 100px; border-radius: 50%; background: var(--theme-outdoor-header); margin: 0 auto 20px; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; color: white;">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Anuj Kumar</h3>
+                <p>Aspiring Athlete | Age: 22</p>
+                <p>Location: Delhi, India</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <p>Notification Preferences</p>
+                <p>Privacy Settings</p>
+                <p>Language: English</p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                <p>Completed 5 tests</p>
+                <p>Earned 3 badges</p>
+                <p>Top 20% in endurance</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Athlete Detail Modal -->
+    <div class="athlete-modal" id="athlete-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-athlete-name">
+                    <i class="fas fa-user"></i>
+                    <span>Athlete Name</span>
+                </div>
+                <div class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Container -->
+    <div class="test-container" id="test-container">
+        <div class="test-header">
+            <h2 class="test-title">Sports Knowledge Test</h2>
+            <div class="close-app" id="close-test">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <div class="test-progress">
+            <div class="test-progress-bar" id="test-progress-bar"></div>
+        </div>
+
+        <div class="question-container" id="question-container">
+            <!-- Questions will be populated by JavaScript -->
+        </div>
+
+        <div class="result-container" id="result-container">
+            <div class="result-badge">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2 class="result-title">Test Completed!</h2>
+            <div class="result-score" id="result-score">0/10</div>
+            <p class="result-message" id="result-message"></p>
+            <button class="btn btn-primary" id="retry-test">Take Test Again</button>
+        </div>
+    </div>
+
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>
